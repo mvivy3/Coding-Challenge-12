@@ -44,3 +44,20 @@ function addInventoryItem(productName) { // Adding a product to the inventory li
         const inventoryList = document.getElementById("inventoryList");
         inventoryList.removeChild(item); // Remove the clicked item from the inventory list
     }
+
+// Task 4: Business Customer Section - Handling Event Bubbling
+
+const customerSection = document.getElementById("customerSection"); // Selecting customer section
+// adding a click event listener
+customerSection.addEventListener("click", () => {console.log("Customer card Has been clicked")}); // Adds event listener
+
+const customerCards = document.querySelectorAll(".customer-card"); // Query selectory will select the customer cards
+customerCards.forEach((card) => 
+{
+  card.style.backgroundColor = "pink"; // Changed the color to pink 
+  card.addEventListener("click", (event) => 
+{
+    console.log("Customer card Has been clicked");
+    event.stopPropagation();
+  });
+});
